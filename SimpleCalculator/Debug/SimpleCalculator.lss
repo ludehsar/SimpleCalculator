@@ -1,0 +1,592 @@
+
+SimpleCalculator.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000035e  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000001a  00800060  0000035e  000003f2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000005  0080007a  0080007a  0000040c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000040c  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000043c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000048  00000000  00000000  00000478  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000807  00000000  00000000  000004c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000005f1  00000000  00000000  00000cc7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000414  00000000  00000000  000012b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000074  00000000  00000000  000016cc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000386  00000000  00000000  00001740  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000233  00000000  00000000  00001ac6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000038  00000000  00000000  00001cf9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	2c c0       	rjmp	.+88     	; 0x5c <__bad_interrupt>
+   4:	2b c0       	rjmp	.+86     	; 0x5c <__bad_interrupt>
+   6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	22 c0       	rjmp	.+68     	; 0x5c <__bad_interrupt>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	ee e5       	ldi	r30, 0x5E	; 94
+  3a:	f3 e0       	ldi	r31, 0x03	; 3
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+  42:	aa 37       	cpi	r26, 0x7A	; 122
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
+
+00000048 <__do_clear_bss>:
+  48:	20 e0       	ldi	r18, 0x00	; 0
+  4a:	aa e7       	ldi	r26, 0x7A	; 122
+  4c:	b0 e0       	ldi	r27, 0x00	; 0
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	af 37       	cpi	r26, 0x7F	; 127
+  54:	b2 07       	cpc	r27, r18
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+  58:	36 d1       	rcall	.+620    	; 0x2c6 <main>
+  5a:	7f c1       	rjmp	.+766    	; 0x35a <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <scanKeypad>:
+
+// Always checks whether a key is pressed or not.
+// If pressed, returns the key information.
+unsigned char scanKeypad()
+{
+	KeypadPortControl = 0b11110000;
+  5e:	80 ef       	ldi	r24, 0xF0	; 240
+  60:	88 bb       	out	0x18, r24	; 24
+	for (int i = 0; i < 4; ++i) {
+  62:	40 e0       	ldi	r20, 0x00	; 0
+  64:	50 e0       	ldi	r21, 0x00	; 0
+		KeypadPortControl = ~(1 << i);
+  66:	61 e0       	ldi	r22, 0x01	; 1
+  68:	70 e0       	ldi	r23, 0x00	; 0
+  6a:	cb 01       	movw	r24, r22
+  6c:	04 2e       	mov	r0, r20
+  6e:	02 c0       	rjmp	.+4      	; 0x74 <scanKeypad+0x16>
+  70:	88 0f       	add	r24, r24
+  72:	99 1f       	adc	r25, r25
+  74:	0a 94       	dec	r0
+  76:	e2 f7       	brpl	.-8      	; 0x70 <scanKeypad+0x12>
+  78:	80 95       	com	r24
+  7a:	88 bb       	out	0x18, r24	; 24
+		for (int j = 4; j < 8; ++j) {
+			if (!(KeypadPortValue & (1 << j))) {
+  7c:	b4 9b       	sbis	0x16, 4	; 22
+  7e:	0d c0       	rjmp	.+26     	; 0x9a <scanKeypad+0x3c>
+  80:	25 e0       	ldi	r18, 0x05	; 5
+  82:	30 e0       	ldi	r19, 0x00	; 0
+  84:	86 b3       	in	r24, 0x16	; 22
+  86:	90 e0       	ldi	r25, 0x00	; 0
+  88:	02 2e       	mov	r0, r18
+  8a:	02 c0       	rjmp	.+4      	; 0x90 <scanKeypad+0x32>
+  8c:	95 95       	asr	r25
+  8e:	87 95       	ror	r24
+  90:	0a 94       	dec	r0
+  92:	e2 f7       	brpl	.-8      	; 0x8c <scanKeypad+0x2e>
+  94:	80 fd       	sbrc	r24, 0
+  96:	2c c0       	rjmp	.+88     	; 0xf0 <scanKeypad+0x92>
+  98:	02 c0       	rjmp	.+4      	; 0x9e <scanKeypad+0x40>
+unsigned char scanKeypad()
+{
+	KeypadPortControl = 0b11110000;
+	for (int i = 0; i < 4; ++i) {
+		KeypadPortControl = ~(1 << i);
+		for (int j = 4; j < 8; ++j) {
+  9a:	24 e0       	ldi	r18, 0x04	; 4
+  9c:	30 e0       	ldi	r19, 0x00	; 0
+			if (!(KeypadPortValue & (1 << j))) {
+				while (!(KeypadPortValue & (1 << j))) _delay_ms(50);
+  9e:	86 b3       	in	r24, 0x16	; 22
+  a0:	90 e0       	ldi	r25, 0x00	; 0
+  a2:	02 2e       	mov	r0, r18
+  a4:	02 c0       	rjmp	.+4      	; 0xaa <scanKeypad+0x4c>
+  a6:	95 95       	asr	r25
+  a8:	87 95       	ror	r24
+  aa:	0a 94       	dec	r0
+  ac:	e2 f7       	brpl	.-8      	; 0xa6 <scanKeypad+0x48>
+  ae:	80 fd       	sbrc	r24, 0
+  b0:	14 c0       	rjmp	.+40     	; 0xda <scanKeypad+0x7c>
+  b2:	61 e0       	ldi	r22, 0x01	; 1
+  b4:	70 e0       	ldi	r23, 0x00	; 0
+  b6:	02 2e       	mov	r0, r18
+  b8:	02 c0       	rjmp	.+4      	; 0xbe <scanKeypad+0x60>
+  ba:	66 0f       	add	r22, r22
+  bc:	77 1f       	adc	r23, r23
+  be:	0a 94       	dec	r0
+  c0:	e2 f7       	brpl	.-8      	; 0xba <scanKeypad+0x5c>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  c2:	83 ed       	ldi	r24, 0xD3	; 211
+  c4:	90 e3       	ldi	r25, 0x30	; 48
+  c6:	01 97       	sbiw	r24, 0x01	; 1
+  c8:	f1 f7       	brne	.-4      	; 0xc6 <scanKeypad+0x68>
+  ca:	00 c0       	rjmp	.+0      	; 0xcc <scanKeypad+0x6e>
+  cc:	00 00       	nop
+  ce:	86 b3       	in	r24, 0x16	; 22
+  d0:	90 e0       	ldi	r25, 0x00	; 0
+  d2:	86 23       	and	r24, r22
+  d4:	97 23       	and	r25, r23
+  d6:	89 2b       	or	r24, r25
+  d8:	a1 f3       	breq	.-24     	; 0xc2 <scanKeypad+0x64>
+				return keys[i][j - 4];
+  da:	44 0f       	add	r20, r20
+  dc:	55 1f       	adc	r21, r21
+  de:	44 0f       	add	r20, r20
+  e0:	55 1f       	adc	r21, r21
+  e2:	24 0f       	add	r18, r20
+  e4:	35 1f       	adc	r19, r21
+  e6:	f9 01       	movw	r30, r18
+  e8:	ea 59       	subi	r30, 0x9A	; 154
+  ea:	ff 4f       	sbci	r31, 0xFF	; 255
+  ec:	80 81       	ld	r24, Z
+  ee:	08 95       	ret
+unsigned char scanKeypad()
+{
+	KeypadPortControl = 0b11110000;
+	for (int i = 0; i < 4; ++i) {
+		KeypadPortControl = ~(1 << i);
+		for (int j = 4; j < 8; ++j) {
+  f0:	2f 5f       	subi	r18, 0xFF	; 255
+  f2:	3f 4f       	sbci	r19, 0xFF	; 255
+  f4:	28 30       	cpi	r18, 0x08	; 8
+  f6:	31 05       	cpc	r19, r1
+  f8:	29 f6       	brne	.-118    	; 0x84 <scanKeypad+0x26>
+// Always checks whether a key is pressed or not.
+// If pressed, returns the key information.
+unsigned char scanKeypad()
+{
+	KeypadPortControl = 0b11110000;
+	for (int i = 0; i < 4; ++i) {
+  fa:	4f 5f       	subi	r20, 0xFF	; 255
+  fc:	5f 4f       	sbci	r21, 0xFF	; 255
+  fe:	44 30       	cpi	r20, 0x04	; 4
+ 100:	51 05       	cpc	r21, r1
+ 102:	09 f0       	breq	.+2      	; 0x106 <scanKeypad+0xa8>
+ 104:	b2 cf       	rjmp	.-156    	; 0x6a <scanKeypad+0xc>
+				while (!(KeypadPortValue & (1 << j))) _delay_ms(50);
+				return keys[i][j - 4];
+			}
+		}
+	}
+	return '?';
+ 106:	8f e3       	ldi	r24, 0x3F	; 63
+}
+ 108:	08 95       	ret
+
+0000010a <print>:
+			break;
+	}
+}
+
+void print(int val)
+{
+ 10a:	6a e0       	ldi	r22, 0x0A	; 10
+ 10c:	70 e0       	ldi	r23, 0x00	; 0
+ 10e:	fe d0       	rcall	.+508    	; 0x30c <__divmodhi4>
+ 110:	77 27       	eor	r23, r23
+	uint8_t firstDigit = (uint8_t) (val / 10);
+	uint8_t secondDigit = (uint8_t) (val % 10);
+	First7SegmentDisplayPortControl = display[firstDigit];
+ 112:	fb 01       	movw	r30, r22
+ 114:	e0 5a       	subi	r30, 0xA0	; 160
+ 116:	ff 4f       	sbci	r31, 0xFF	; 255
+ 118:	20 81       	ld	r18, Z
+ 11a:	25 bb       	out	0x15, r18	; 21
+	Second7SegmentDisplayPortControl = display[secondDigit];
+ 11c:	dc 01       	movw	r26, r24
+ 11e:	bb 27       	eor	r27, r27
+ 120:	a0 5a       	subi	r26, 0xA0	; 160
+ 122:	bf 4f       	sbci	r27, 0xFF	; 255
+ 124:	8c 91       	ld	r24, X
+ 126:	82 bb       	out	0x12, r24	; 18
+	Second7SegmentDisplayPortControl |= (display[firstDigit] & (1 << 6)) << 1;
+ 128:	92 b3       	in	r25, 0x12	; 18
+ 12a:	80 81       	ld	r24, Z
+ 12c:	80 74       	andi	r24, 0x40	; 64
+ 12e:	88 0f       	add	r24, r24
+ 130:	89 2b       	or	r24, r25
+ 132:	82 bb       	out	0x12, r24	; 18
+ 134:	08 95       	ret
+
+00000136 <addDigitToTheSecondValue>:
+// adds digit to the back of the second value
+// and then prints the value
+void addDigitToTheSecondValue(uint8_t val)
+{
+	secondValue = secondValue * 10 + (int) val;
+	secondValue %= 100;
+ 136:	20 91 7c 00 	lds	r18, 0x007C	; 0x80007c <secondValue>
+ 13a:	30 91 7d 00 	lds	r19, 0x007D	; 0x80007d <secondValue+0x1>
+ 13e:	a9 01       	movw	r20, r18
+ 140:	44 0f       	add	r20, r20
+ 142:	55 1f       	adc	r21, r21
+ 144:	22 0f       	add	r18, r18
+ 146:	33 1f       	adc	r19, r19
+ 148:	22 0f       	add	r18, r18
+ 14a:	33 1f       	adc	r19, r19
+ 14c:	22 0f       	add	r18, r18
+ 14e:	33 1f       	adc	r19, r19
+ 150:	24 0f       	add	r18, r20
+ 152:	35 1f       	adc	r19, r21
+ 154:	a9 01       	movw	r20, r18
+ 156:	48 0f       	add	r20, r24
+ 158:	51 1d       	adc	r21, r1
+ 15a:	ca 01       	movw	r24, r20
+ 15c:	64 e6       	ldi	r22, 0x64	; 100
+ 15e:	70 e0       	ldi	r23, 0x00	; 0
+ 160:	d5 d0       	rcall	.+426    	; 0x30c <__divmodhi4>
+ 162:	90 93 7d 00 	sts	0x007D, r25	; 0x80007d <secondValue+0x1>
+ 166:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <secondValue>
+	print(secondValue);
+ 16a:	cf df       	rcall	.-98     	; 0x10a <print>
+ 16c:	08 95       	ret
+
+0000016e <process>:
+}
+
+void process(unsigned char operator)
+{
+	switch (operator) {
+ 16e:	8d 32       	cpi	r24, 0x2D	; 45
+ 170:	09 f4       	brne	.+2      	; 0x174 <process+0x6>
+ 172:	46 c0       	rjmp	.+140    	; 0x200 <process+0x92>
+ 174:	30 f4       	brcc	.+12     	; 0x182 <process+0x14>
+ 176:	8a 32       	cpi	r24, 0x2A	; 42
+ 178:	09 f4       	brne	.+2      	; 0x17c <process+0xe>
+ 17a:	6a c0       	rjmp	.+212    	; 0x250 <process+0xe2>
+ 17c:	8b 32       	cpi	r24, 0x2B	; 43
+ 17e:	49 f1       	breq	.+82     	; 0x1d2 <process+0x64>
+ 180:	08 95       	ret
+ 182:	8d 33       	cpi	r24, 0x3D	; 61
+ 184:	a9 f0       	breq	.+42     	; 0x1b0 <process+0x42>
+ 186:	83 34       	cpi	r24, 0x43	; 67
+ 188:	21 f0       	breq	.+8      	; 0x192 <process+0x24>
+ 18a:	8f 32       	cpi	r24, 0x2F	; 47
+ 18c:	09 f0       	breq	.+2      	; 0x190 <process+0x22>
+ 18e:	92 c0       	rjmp	.+292    	; 0x2b4 <process+0x146>
+ 190:	7b c0       	rjmp	.+246    	; 0x288 <process+0x11a>
+		case 'C':
+			calculatedValue = 0;
+ 192:	10 92 7b 00 	sts	0x007B, r1	; 0x80007b <__data_end+0x1>
+ 196:	10 92 7a 00 	sts	0x007A, r1	; 0x80007a <__data_end>
+			secondValue = 0;
+ 19a:	10 92 7d 00 	sts	0x007D, r1	; 0x80007d <secondValue+0x1>
+ 19e:	10 92 7c 00 	sts	0x007C, r1	; 0x80007c <secondValue>
+			stackedOperator = '=';
+ 1a2:	8d e3       	ldi	r24, 0x3D	; 61
+ 1a4:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <stackedOperator>
+			print(calculatedValue);
+ 1a8:	80 e0       	ldi	r24, 0x00	; 0
+ 1aa:	90 e0       	ldi	r25, 0x00	; 0
+ 1ac:	ae df       	rcall	.-164    	; 0x10a <print>
+			break;
+ 1ae:	08 95       	ret
+		
+		case '=':
+			calculatedValue = secondValue;
+ 1b0:	80 91 7c 00 	lds	r24, 0x007C	; 0x80007c <secondValue>
+ 1b4:	90 91 7d 00 	lds	r25, 0x007D	; 0x80007d <secondValue+0x1>
+			secondValue = 0;
+ 1b8:	10 92 7d 00 	sts	0x007D, r1	; 0x80007d <secondValue+0x1>
+ 1bc:	10 92 7c 00 	sts	0x007C, r1	; 0x80007c <secondValue>
+			calculatedValue %= 100;
+ 1c0:	64 e6       	ldi	r22, 0x64	; 100
+ 1c2:	70 e0       	ldi	r23, 0x00	; 0
+ 1c4:	a3 d0       	rcall	.+326    	; 0x30c <__divmodhi4>
+ 1c6:	90 93 7b 00 	sts	0x007B, r25	; 0x80007b <__data_end+0x1>
+ 1ca:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__data_end>
+			print(calculatedValue);
+ 1ce:	9d df       	rcall	.-198    	; 0x10a <print>
+			break;
+ 1d0:	08 95       	ret
+			
+		case '+':
+			calculatedValue += secondValue;
+ 1d2:	20 91 7a 00 	lds	r18, 0x007A	; 0x80007a <__data_end>
+ 1d6:	30 91 7b 00 	lds	r19, 0x007B	; 0x80007b <__data_end+0x1>
+ 1da:	80 91 7c 00 	lds	r24, 0x007C	; 0x80007c <secondValue>
+ 1de:	90 91 7d 00 	lds	r25, 0x007D	; 0x80007d <secondValue+0x1>
+ 1e2:	82 0f       	add	r24, r18
+ 1e4:	93 1f       	adc	r25, r19
+			secondValue = 0;
+ 1e6:	10 92 7d 00 	sts	0x007D, r1	; 0x80007d <secondValue+0x1>
+ 1ea:	10 92 7c 00 	sts	0x007C, r1	; 0x80007c <secondValue>
+			calculatedValue %= 100;
+ 1ee:	64 e6       	ldi	r22, 0x64	; 100
+ 1f0:	70 e0       	ldi	r23, 0x00	; 0
+ 1f2:	8c d0       	rcall	.+280    	; 0x30c <__divmodhi4>
+ 1f4:	90 93 7b 00 	sts	0x007B, r25	; 0x80007b <__data_end+0x1>
+ 1f8:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__data_end>
+			print(calculatedValue);
+ 1fc:	86 df       	rcall	.-244    	; 0x10a <print>
+			break;
+ 1fe:	08 95       	ret
+			
+		case '-':
+			calculatedValue -= secondValue;
+ 200:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__data_end>
+ 204:	90 91 7b 00 	lds	r25, 0x007B	; 0x80007b <__data_end+0x1>
+ 208:	20 91 7c 00 	lds	r18, 0x007C	; 0x80007c <secondValue>
+ 20c:	30 91 7d 00 	lds	r19, 0x007D	; 0x80007d <secondValue+0x1>
+ 210:	82 1b       	sub	r24, r18
+ 212:	93 0b       	sbc	r25, r19
+ 214:	90 93 7b 00 	sts	0x007B, r25	; 0x80007b <__data_end+0x1>
+ 218:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__data_end>
+			secondValue = 0;
+ 21c:	10 92 7d 00 	sts	0x007D, r1	; 0x80007d <secondValue+0x1>
+ 220:	10 92 7c 00 	sts	0x007C, r1	; 0x80007c <secondValue>
+			if (calculatedValue < 0) calculatedValue = -calculatedValue;
+ 224:	99 23       	and	r25, r25
+ 226:	3c f4       	brge	.+14     	; 0x236 <process+0xc8>
+ 228:	91 95       	neg	r25
+ 22a:	81 95       	neg	r24
+ 22c:	91 09       	sbc	r25, r1
+ 22e:	90 93 7b 00 	sts	0x007B, r25	; 0x80007b <__data_end+0x1>
+ 232:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__data_end>
+			calculatedValue %= 100;
+ 236:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__data_end>
+ 23a:	90 91 7b 00 	lds	r25, 0x007B	; 0x80007b <__data_end+0x1>
+ 23e:	64 e6       	ldi	r22, 0x64	; 100
+ 240:	70 e0       	ldi	r23, 0x00	; 0
+ 242:	64 d0       	rcall	.+200    	; 0x30c <__divmodhi4>
+ 244:	90 93 7b 00 	sts	0x007B, r25	; 0x80007b <__data_end+0x1>
+ 248:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__data_end>
+			print(calculatedValue);
+ 24c:	5e df       	rcall	.-324    	; 0x10a <print>
+			break;
+ 24e:	08 95       	ret
+			
+		case '*':
+			calculatedValue *= secondValue;
+ 250:	40 91 7a 00 	lds	r20, 0x007A	; 0x80007a <__data_end>
+ 254:	50 91 7b 00 	lds	r21, 0x007B	; 0x80007b <__data_end+0x1>
+ 258:	20 91 7c 00 	lds	r18, 0x007C	; 0x80007c <secondValue>
+ 25c:	30 91 7d 00 	lds	r19, 0x007D	; 0x80007d <secondValue+0x1>
+ 260:	42 9f       	mul	r20, r18
+ 262:	c0 01       	movw	r24, r0
+ 264:	43 9f       	mul	r20, r19
+ 266:	90 0d       	add	r25, r0
+ 268:	52 9f       	mul	r21, r18
+ 26a:	90 0d       	add	r25, r0
+ 26c:	11 24       	eor	r1, r1
+			secondValue = 0;
+ 26e:	10 92 7d 00 	sts	0x007D, r1	; 0x80007d <secondValue+0x1>
+ 272:	10 92 7c 00 	sts	0x007C, r1	; 0x80007c <secondValue>
+			calculatedValue %= 100;
+ 276:	64 e6       	ldi	r22, 0x64	; 100
+ 278:	70 e0       	ldi	r23, 0x00	; 0
+ 27a:	48 d0       	rcall	.+144    	; 0x30c <__divmodhi4>
+ 27c:	90 93 7b 00 	sts	0x007B, r25	; 0x80007b <__data_end+0x1>
+ 280:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__data_end>
+			print(calculatedValue);
+ 284:	42 df       	rcall	.-380    	; 0x10a <print>
+			break;
+ 286:	08 95       	ret
+		
+		case '/':
+			calculatedValue /= secondValue;
+ 288:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__data_end>
+ 28c:	90 91 7b 00 	lds	r25, 0x007B	; 0x80007b <__data_end+0x1>
+ 290:	60 91 7c 00 	lds	r22, 0x007C	; 0x80007c <secondValue>
+ 294:	70 91 7d 00 	lds	r23, 0x007D	; 0x80007d <secondValue+0x1>
+ 298:	39 d0       	rcall	.+114    	; 0x30c <__divmodhi4>
+ 29a:	cb 01       	movw	r24, r22
+			secondValue = 0;
+ 29c:	10 92 7d 00 	sts	0x007D, r1	; 0x80007d <secondValue+0x1>
+ 2a0:	10 92 7c 00 	sts	0x007C, r1	; 0x80007c <secondValue>
+			calculatedValue %= 100;
+ 2a4:	64 e6       	ldi	r22, 0x64	; 100
+ 2a6:	70 e0       	ldi	r23, 0x00	; 0
+ 2a8:	31 d0       	rcall	.+98     	; 0x30c <__divmodhi4>
+ 2aa:	90 93 7b 00 	sts	0x007B, r25	; 0x80007b <__data_end+0x1>
+ 2ae:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__data_end>
+			print(calculatedValue);
+ 2b2:	2b df       	rcall	.-426    	; 0x10a <print>
+ 2b4:	08 95       	ret
+
+000002b6 <initialize>:
+	return 0;
+}
+
+void initialize()
+{
+	process('C');
+ 2b6:	83 e4       	ldi	r24, 0x43	; 67
+ 2b8:	5a df       	rcall	.-332    	; 0x16e <process>
+	
+	KeypadDirectionRegister = 0b00001111; // By default, the rows will be the output and the columns will be the input.
+ 2ba:	8f e0       	ldi	r24, 0x0F	; 15
+ 2bc:	87 bb       	out	0x17, r24	; 23
+	
+	First7SegmentDisplayDirectionRegister = 0b11111111;
+ 2be:	8f ef       	ldi	r24, 0xFF	; 255
+ 2c0:	84 bb       	out	0x14, r24	; 20
+	Second7SegmentDisplayDirectionRegister = 0b11111111;
+ 2c2:	81 bb       	out	0x11, r24	; 17
+ 2c4:	08 95       	ret
+
+000002c6 <main>:
+void print(int val);
+void process(unsigned char operator);
+
+int main(void)
+{
+	initialize();
+ 2c6:	f7 df       	rcall	.-18     	; 0x2b6 <initialize>
+	
+    while (1)
+    {
+		unsigned char key = scanKeypad();
+ 2c8:	ca de       	rcall	.-620    	; 0x5e <scanKeypad>
+ 2ca:	c8 2f       	mov	r28, r24
+		if (key != '?') {
+ 2cc:	8f 33       	cpi	r24, 0x3F	; 63
+ 2ce:	e1 f3       	breq	.-8      	; 0x2c8 <main+0x2>
+			if (key >= '0' && key <= '9') {
+ 2d0:	80 ed       	ldi	r24, 0xD0	; 208
+ 2d2:	8c 0f       	add	r24, r28
+ 2d4:	8a 30       	cpi	r24, 0x0A	; 10
+ 2d6:	10 f4       	brcc	.+4      	; 0x2dc <main+0x16>
+				uint8_t k = (uint8_t) (key - '0');
+				addDigitToTheSecondValue(k);
+ 2d8:	2e df       	rcall	.-420    	; 0x136 <addDigitToTheSecondValue>
+ 2da:	f6 cf       	rjmp	.-20     	; 0x2c8 <main+0x2>
+			} else {
+				if (key == 'C') process(key);
+ 2dc:	c3 34       	cpi	r28, 0x43	; 67
+ 2de:	19 f4       	brne	.+6      	; 0x2e6 <main+0x20>
+ 2e0:	83 e4       	ldi	r24, 0x43	; 67
+ 2e2:	45 df       	rcall	.-374    	; 0x16e <process>
+ 2e4:	f1 cf       	rjmp	.-30     	; 0x2c8 <main+0x2>
+				else if (stackedOperator != '=') {
+ 2e6:	80 91 7e 00 	lds	r24, 0x007E	; 0x80007e <stackedOperator>
+ 2ea:	8d 33       	cpi	r24, 0x3D	; 61
+ 2ec:	21 f0       	breq	.+8      	; 0x2f6 <main+0x30>
+					process(stackedOperator);
+ 2ee:	3f df       	rcall	.-386    	; 0x16e <process>
+					stackedOperator = key;
+ 2f0:	c0 93 7e 00 	sts	0x007E, r28	; 0x80007e <stackedOperator>
+ 2f4:	e9 cf       	rjmp	.-46     	; 0x2c8 <main+0x2>
+				}
+				else { // stackedOperator is currently empty
+					stackedOperator = key;
+ 2f6:	c0 93 7e 00 	sts	0x007E, r28	; 0x80007e <stackedOperator>
+					if (secondValue != 0) process('=');
+ 2fa:	80 91 7c 00 	lds	r24, 0x007C	; 0x80007c <secondValue>
+ 2fe:	90 91 7d 00 	lds	r25, 0x007D	; 0x80007d <secondValue+0x1>
+ 302:	89 2b       	or	r24, r25
+ 304:	09 f3       	breq	.-62     	; 0x2c8 <main+0x2>
+ 306:	8d e3       	ldi	r24, 0x3D	; 61
+ 308:	32 df       	rcall	.-412    	; 0x16e <process>
+ 30a:	de cf       	rjmp	.-68     	; 0x2c8 <main+0x2>
+
+0000030c <__divmodhi4>:
+ 30c:	97 fb       	bst	r25, 7
+ 30e:	07 2e       	mov	r0, r23
+ 310:	16 f4       	brtc	.+4      	; 0x316 <__divmodhi4+0xa>
+ 312:	00 94       	com	r0
+ 314:	06 d0       	rcall	.+12     	; 0x322 <__divmodhi4_neg1>
+ 316:	77 fd       	sbrc	r23, 7
+ 318:	08 d0       	rcall	.+16     	; 0x32a <__divmodhi4_neg2>
+ 31a:	0b d0       	rcall	.+22     	; 0x332 <__udivmodhi4>
+ 31c:	07 fc       	sbrc	r0, 7
+ 31e:	05 d0       	rcall	.+10     	; 0x32a <__divmodhi4_neg2>
+ 320:	3e f4       	brtc	.+14     	; 0x330 <__divmodhi4_exit>
+
+00000322 <__divmodhi4_neg1>:
+ 322:	90 95       	com	r25
+ 324:	81 95       	neg	r24
+ 326:	9f 4f       	sbci	r25, 0xFF	; 255
+ 328:	08 95       	ret
+
+0000032a <__divmodhi4_neg2>:
+ 32a:	70 95       	com	r23
+ 32c:	61 95       	neg	r22
+ 32e:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000330 <__divmodhi4_exit>:
+ 330:	08 95       	ret
+
+00000332 <__udivmodhi4>:
+ 332:	aa 1b       	sub	r26, r26
+ 334:	bb 1b       	sub	r27, r27
+ 336:	51 e1       	ldi	r21, 0x11	; 17
+ 338:	07 c0       	rjmp	.+14     	; 0x348 <__udivmodhi4_ep>
+
+0000033a <__udivmodhi4_loop>:
+ 33a:	aa 1f       	adc	r26, r26
+ 33c:	bb 1f       	adc	r27, r27
+ 33e:	a6 17       	cp	r26, r22
+ 340:	b7 07       	cpc	r27, r23
+ 342:	10 f0       	brcs	.+4      	; 0x348 <__udivmodhi4_ep>
+ 344:	a6 1b       	sub	r26, r22
+ 346:	b7 0b       	sbc	r27, r23
+
+00000348 <__udivmodhi4_ep>:
+ 348:	88 1f       	adc	r24, r24
+ 34a:	99 1f       	adc	r25, r25
+ 34c:	5a 95       	dec	r21
+ 34e:	a9 f7       	brne	.-22     	; 0x33a <__udivmodhi4_loop>
+ 350:	80 95       	com	r24
+ 352:	90 95       	com	r25
+ 354:	bc 01       	movw	r22, r24
+ 356:	cd 01       	movw	r24, r26
+ 358:	08 95       	ret
+
+0000035a <_exit>:
+ 35a:	f8 94       	cli
+
+0000035c <__stop_program>:
+ 35c:	ff cf       	rjmp	.-2      	; 0x35c <__stop_program>
