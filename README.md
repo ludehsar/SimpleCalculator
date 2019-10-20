@@ -16,7 +16,7 @@
 
 ## About The Project
 
-This is actually the final project for the course CSE 611 (Computer Interfacing and Microcontroller) at Department of Computer Science and Engineering, University of Chittagong. In this presentation, we have been told to interface a simple calculator with atmega 8 microcontroller, a 4 * 4 keypad, and two 7 segment LED displays. The objective of this project is to learn how to program a microcontroller. In order to accomplish the result, we write a C program to control the software behaviour of the calculator. We also have a design file which is used for software simulation by the Proteus 8.6+ professional.
+This is actually the final project for the course CSE 612 (Computer Interfacing and Microcontroller Lab) at Department of Computer Science and Engineering, University of Chittagong. In this presentation, we have been told to interface a simple calculator with atmega 8 microcontroller, a 4 * 4 keypad, and two 7 segment LED displays. The objective of this project is to learn how to program a microcontroller. In order to accomplish the result, we write a C program to control the software behaviour of the calculator. We also have a design file which is used for software simulation by the Proteus 8.6+ professional.
 
 ## Prerequisites
 
