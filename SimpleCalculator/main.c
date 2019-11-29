@@ -3,7 +3,7 @@
  *
  * Created: 16-Oct-19 01:31:38 AM
  * Author : Group H
- */ 
+ */
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -21,10 +21,10 @@
 
 // Key combination of keypad
 unsigned char keys[4][4] = {
-	{'7', '8', '9', '/'},
-	{'4', '5', '6', '*'},
-	{'1', '2', '3', '-'},
-	{'C', '0', '=', '+'}
+	{'1', '2', '3', '+'},
+	{'4', '5', '6', '-'},
+	{'7', '8', '9', '*'},
+	{'C', '0', '=', '/'}
 };
 int calculatedValue;
 int secondValue;
