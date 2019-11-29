@@ -1,6 +1,6 @@
 # Simple Calculator
 
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/magenia/SimpleCalculator/blob/master/LICENSE)
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@
 
 ## About The Project
 
-This is actually the final project for the course CSE 611 (Computer Interfacing and Microcontroller) at Department of Computer Science and Engineering, University of Chittagong. In this presentation, we have been told to interface a simple calculator with atmega 8 microcontroller, a 4 * 4 keypad, and two 7 segment LED displays. The objective of this project is to learn how to program a microcontroller. In order to accomplish the result, we write a C program to control the software behaviour of the calculator. We also have a design file which is used for software simulation by the Proteus 8.6+ professional.
+This is actually the final project for the course CSE 612 (Computer Interfacing and Microcontroller Lab) at Department of Computer Science and Engineering, University of Chittagong. In this presentation, we have been told to interface a simple calculator with atmega 8 microcontroller, a 4 * 4 keypad, and two 7 segment LED displays. The objective of this project is to learn how to program a microcontroller. In order to accomplish the result, we write a C program to control the software behaviour of the calculator. We also have a design file which is used for software simulation by the Proteus 8.6+ professional.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ git clone https://github.com/magenia/SimpleCalculator.git
 3. Now, connect the keypad and 7 segment displays with the microcontroller according to the following figure:
 
 <p align="center">
-    <img src="images/screenshot.png" alt="the connections" />
+    <img src="https://github.com/magenia/SimpleCalculator/blob/master/images/screenshot.PNG" alt="the connections" />
 </p>
 
 **Note:** The pin configuration might not be accurate for the microcontroller. See [https://components101.com/microcontrollers/atmega8-avr](https://components101.com/microcontrollers/atmega8-avr) for pin configuration of the atmega 8 microcontroller. If the image is not clear, then, PB0-PB7 are connected with the calculator, PC0-PC5 are connected with the first 6 ports of the first 7 segment display, PD7 is connected with the 7-th ports of the first 7 segment display. PD0-PD6 are connected with ports **a-g** of the second 7 segment display. Don't forget to configure the vcc and the grounds. The 7 segment displays are common cathode, so the com ports will be connected to ground. For convenience, the pin configuration of the 7 segment displays can be found [here](https://components101.com/7-segment-display-pinout-working-datasheet).
