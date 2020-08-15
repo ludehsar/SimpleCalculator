@@ -1,6 +1,6 @@
 # Simple Calculator
 
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/magenia/SimpleCalculator/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ludehsar/SimpleCalculator/blob/master/LICENSE)
 
 ## Table of Contents
 
@@ -45,26 +45,26 @@ The hardwares required for this project are:
 
 1. Clone the github repo.
 ```sh
-git clone https://github.com/magenia/SimpleCalculator.git
+git clone https://github.com/ludehsar/SimpleCalculator.git
 ```
 
-2. Load the [hex file](https://github.com/magenia/SimpleCalculator/blob/master/SimpleCalculator/Release/SimpleCalculator.hex) of the code to the microcontroller using avr programmer burner.
+2. Load the [hex file](https://github.com/ludehsar/SimpleCalculator/blob/master/SimpleCalculator/Release/SimpleCalculator.hex) of the code to the microcontroller using avr programmer burner.
 
 3. Now, connect the keypad and 7 segment displays with the microcontroller according to the following figure:
 
 <p align="center">
-    <img src="https://github.com/magenia/SimpleCalculator/blob/master/images/screenshot.PNG" alt="the connections" />
+    <img src="https://github.com/ludehsar/SimpleCalculator/blob/master/images/screenshot.PNG" alt="the connections" />
 </p>
 
 **Note:** The pin configuration might not be accurate for the microcontroller. See [https://components101.com/microcontrollers/atmega8-avr](https://components101.com/microcontrollers/atmega8-avr) for pin configuration of the atmega 8 microcontroller. If the image is not clear, then, PB0-PB7 are connected with the calculator, PC0-PC5 are connected with the first 6 ports of the first 7 segment display, PD7 is connected with the 7-th ports of the first 7 segment display. PD0-PD6 are connected with ports **a-g** of the second 7 segment display. Don't forget to configure the vcc and the grounds. The 7 segment displays are common cathode, so the com ports will be connected to ground. For convenience, the pin configuration of the 7 segment displays can be found [here](https://components101.com/7-segment-display-pinout-working-datasheet).
 
 4. Connect the power adapter and you are good to go.
 
-5. In order to simulate the design file, open Proteus 8.6+ professional and open [Calculator.pdsprj](https://github.com/magenia/SimpleCalculator/blob/master/Design/Calculator.pdsprj). Then hit the play button.
+5. In order to simulate the design file, open Proteus 8.6+ professional and open [Calculator.pdsprj](https://github.com/ludehsar/SimpleCalculator/blob/master/Design/Calculator.pdsprj). Then hit the play button.
 
 ## Roadmap
 
-See the [open issues](https://github.com/magenia/SimpleCalculator/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/ludehsar/SimpleCalculator/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
@@ -88,4 +88,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 4. Muhammad Shahriar Alam - shahriarcsecu33@gmail.com
 5. Gazi Mohaimin Iqbal - mohaiminiqbal21@gmail.com
 
-Project Link: [https://github.com/magenia/SimpleCalculator](https://github.com/magenia/SimpleCalculator)
+Project Link: [https://github.com/ludehsar/SimpleCalculator](https://github.com/ludehsar/SimpleCalculator)
